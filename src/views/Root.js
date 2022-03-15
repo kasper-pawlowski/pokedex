@@ -19,7 +19,7 @@ const Root = () => {
                         <Nav />
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="/:id" element={<Pokemon />} />
+                            <Route path="/pokemon/:id" element={<Pokemon />} />
                         </Routes>
                     </Wrapper>
                 </ThemeProvider>
