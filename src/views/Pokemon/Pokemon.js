@@ -17,7 +17,7 @@ const Pokemon = () => {
             .catch(function (error) {
                 setPokemon(false);
             });
-    }, []);
+    }, [id]);
 
     return (
         <>
