@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { typesColors } from 'assets/pokemon-types-colors';
+import { Link } from 'react-router-dom';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;

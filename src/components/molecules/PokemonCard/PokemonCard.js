@@ -17,10 +17,10 @@ const PokemonCard = ({ data: { url } }) => {
     }
 
     return (
-        <Wrapper type={pokemon.types[0].type.name}>
+        <Wrapper to={`/${pokemon.id}`} type={pokemon.types[0].type.name}>
             <Img src={pokemon.sprites.other.home.front_default} alt="" />
             <Name>{pokemon.name}</Name>
-            <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : pokemon.id}</Id>
+            <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
         </Wrapper>
     );
 };
