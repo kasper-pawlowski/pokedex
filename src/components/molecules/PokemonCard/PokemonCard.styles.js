@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { typesColors } from 'assets/pokemon-types-colors';
 import { Link } from 'react-router-dom';
+import { types, typesLight } from 'helpers/types';
 
 export const Wrapper = styled(Link)`
     display: flex;
@@ -8,44 +8,8 @@ export const Wrapper = styled(Link)`
     align-items: center;
     height: 280px;
     border-radius: 10px;
-    background-color: ${({ type }) =>
-        type === 'grass'
-            ? typesColors.grass
-            : type === 'fire'
-            ? typesColors.fire
-            : type === 'water'
-            ? typesColors.water
-            : type === 'bug'
-            ? typesColors.bug
-            : type === 'ground'
-            ? typesColors.ground
-            : type === 'poison'
-            ? typesColors.poison
-            : type === 'electric'
-            ? typesColors.electric
-            : type === 'psychic'
-            ? typesColors.psychic
-            : type === 'normal'
-            ? typesColors.normal
-            : type === 'fairy'
-            ? typesColors.fairy
-            : type === 'ice'
-            ? typesColors.ice
-            : type === 'fighting'
-            ? typesColors.fighting
-            : type === 'flying'
-            ? typesColors.flying
-            : type === 'rock'
-            ? typesColors.rock
-            : type === 'ghost'
-            ? typesColors.ghost
-            : type === 'dragon'
-            ? typesColors.dragon
-            : type === 'dark'
-            ? typesColors.dark
-            : type === 'steel'
-            ? typesColors.steel
-            : '#fff'};
+    /* background-color: ${({ type }) => types(type)}; */
+    background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)});
 `;
 
 export const Img = styled.img`

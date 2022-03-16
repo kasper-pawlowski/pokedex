@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Wrapper } from './Pokemon.styles';
+import React, { useState, useEffect } from 'react';
+import { Wrapper, ImgWrapper } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
@@ -10,19 +10,23 @@ const Pokemon = () => {
     useEffect(() => {
         axios
             .get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-            .then(function (response) {
-                const { data } = response;
-                setPokemon(data);
-            })
-            .catch(function (error) {
-                setPokemon(false);
-            });
+            .then(({ data }) => setPokemon(data))
+            .catch((err) => console.log(err));
     }, [id]);
 
+    if (pokemon.sprites === undefined) {
+        return <div />;
+    }
+
     return (
-        <>
-            <Wrapper>{pokemon.name}</Wrapper>
-        </>
+        <Wrapper>
+            <ImgWrapper type={pokemon.types[0].type.name}>
+                <img src={pokemon.sprites.other.home.front_default} alt="" />
+            </ImgWrapper>
+            {/* <Img src={pokemon.sprites.other.home.front_default} alt="" /> */}
+            {/* <Name>{pokemon.name}</Name> */}
+            {/* <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id> */}
+        </Wrapper>
     );
 };
 
