@@ -8,8 +8,8 @@ export const Wrapper = styled(Link)`
     align-items: center;
     height: 280px;
     border-radius: 10px;
-    /* background-color: ${({ type }) => types(type)}; */
-    background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)});
+    background-color: ${({ type }) => typesLight(type)};
+    /* background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)}); */
 `;
 
 export const Img = styled.img`
