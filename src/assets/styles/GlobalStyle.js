@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     background: #f8fbf5;
     color: #2e3057;
+    width: 100%;
+    min-height: 100vh;
+    scrollbar-gutter: stable both-edges;
+    overflow-y: overlay;
   }
   
   a, button, input {

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, ImgWrapper } from './Pokemon.styles';
+import { Wrapper, ImgWrapper, Info, Name, Id } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Types from '../../components/molecules/Types/Types.js';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -23,9 +24,13 @@ const Pokemon = () => {
             <ImgWrapper type={pokemon.types[0].type.name}>
                 <img src={pokemon.sprites.other.home.front_default} alt="" />
             </ImgWrapper>
-            {/* <Img src={pokemon.sprites.other.home.front_default} alt="" /> */}
-            {/* <Name>{pokemon.name}</Name> */}
-            {/* <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id> */}
+            <Info>
+                <Name>
+                    {pokemon.name}
+                    <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
+                </Name>
+                <Types types={pokemon.types} />
+            </Info>
         </Wrapper>
     );
 };
