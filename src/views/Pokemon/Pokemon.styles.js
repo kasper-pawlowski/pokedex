@@ -47,7 +47,7 @@ export const Info = styled.div`
     flex: 1.2;
 `;
 
-export const Name = styled.p`
+export const Name = styled.span`
     font-size: 4rem;
     font-weight: 600;
     text-transform: capitalize;

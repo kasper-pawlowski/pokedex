@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper, ImgWrapper, Info, Name, Id } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Types from '../../components/molecules/Types/Types.js';
+import Types from 'components/molecules/Types/Types';
+import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
+import Dimensions from 'components/molecules/Dimensions/Dimensions';
+import Stats from 'components/molecules/Stats/Stats';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
+    const [pokemonSpecies, setPokemonSpecies] = useState([]);
+    const [evolutionChain, setEvolutionChain] = useState([]);
     let { id } = useParams();
 
     useEffect(() => {
@@ -14,6 +19,22 @@ const Pokemon = () => {
             .then(({ data }) => setPokemon(data))
             .catch((err) => console.log(err));
     }, [id]);
+
+    useEffect(() => {
+        axios
+            .get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
+            .then(({ data }) => setPokemonSpecies(data))
+            .catch((err) => console.log(err));
+    }, [id]);
+
+    useEffect(() => {
+        if (pokemonSpecies.evolution_chain) {
+            axios
+                .get(pokemonSpecies.evolution_chain?.url)
+                .then(({ data }) => setEvolutionChain(data))
+                .catch((err) => console.log(err));
+        }
+    }, [pokemonSpecies]);
 
     if (pokemon.sprites === undefined) {
         return <div />;
@@ -26,10 +47,13 @@ const Pokemon = () => {
             </ImgWrapper>
             <Info>
                 <Name>
-                    {pokemon.name}
+                    <p>{pokemon.name}</p>
                     <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
                 </Name>
                 <Types types={pokemon.types} />
+                <Dimensions height={pokemon.height} weight={pokemon.weight} />
+                <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} id={pokemon.id} />
+                {/* <EvolutionChain evolutionChain={evolutionChain} /> */}
             </Info>
         </Wrapper>
     );

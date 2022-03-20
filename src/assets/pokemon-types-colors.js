@@ -23,7 +23,7 @@ export const lightTypesColors = {
     normal: '#dad891',
     fire: '#dfb29a',
     water: '#9db0db',
-    electric: '#f5ea51',
+    electric: '#f0e772',
     grass: '#a1e0c3',
     ice: '#96cecb',
     fighting: '#d89e9c',
