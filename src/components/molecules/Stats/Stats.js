@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, StatRenge, StatRengeDiv } from './Stats.styles';
+import { Wrapper, StatRenge, StatRengeDiv, Description } from './Stats.styles';
 
 const Stats = ({ stats, type, id }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -13,6 +13,7 @@ const Stats = ({ stats, type, id }) => {
 
     return (
         <Wrapper>
+            <Description type={type}>Stats</Description>
             <div>
                 {stats.map(({ stat }) => (
                     <p key={stat.name}>{stat.name}</p>

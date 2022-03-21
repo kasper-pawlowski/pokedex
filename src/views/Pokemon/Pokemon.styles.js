@@ -19,6 +19,7 @@ export const ImgWrapper = styled.div`
     border-radius: 10px;
     /* background-color: ${({ type }) => typesLight(type)}; */
     background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)});
+    transition-duration: 5s;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.199);
 
     img {

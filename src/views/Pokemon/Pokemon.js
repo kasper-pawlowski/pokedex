@@ -6,6 +6,7 @@ import Types from 'components/molecules/Types/Types';
 import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 import Dimensions from 'components/molecules/Dimensions/Dimensions';
 import Stats from 'components/molecules/Stats/Stats';
+import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -51,10 +52,11 @@ const Pokemon = () => {
                     <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
                 </Name>
                 <Types types={pokemon.types} />
-                <Dimensions height={pokemon.height} weight={pokemon.weight} />
+                <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
                 <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} id={pokemon.id} />
                 {/* <EvolutionChain evolutionChain={evolutionChain} /> */}
             </Info>
+            {/* <PokemonPagination type={pokemon.types[0].type.name} id={id} /> */}
         </Wrapper>
     );
 };

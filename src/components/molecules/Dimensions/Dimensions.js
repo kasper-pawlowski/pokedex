@@ -1,9 +1,10 @@
 import React from 'react';
-import { Wrapper, Line, StyledRuler, StyledWeight } from './Dimensions.styles';
+import { Wrapper, Line, StyledRuler, StyledWeight, Description } from './Dimensions.styles';
 
-const EvolutionChain = ({ height, weight }) => {
+const Dimensions = ({ height, weight, type }) => {
     return (
         <Wrapper>
+            <Description type={type}>Dimensions</Description>
             <div>
                 <p>
                     <StyledWeight />
@@ -23,4 +24,4 @@ const EvolutionChain = ({ height, weight }) => {
     );
 };
 
-export default EvolutionChain;
+export default Dimensions;

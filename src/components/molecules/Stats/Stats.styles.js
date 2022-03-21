@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { types, typesLight } from 'helpers/types';
 
 export const Wrapper = styled.div`
+    position: relative;
     margin-top: 30px;
     width: fit-content;
-    /* padding: 30px; */
+    padding: 30px 20px;
     /* background-color: #ebf3f5; */
     display: flex;
     gap: 30px;
@@ -27,6 +28,15 @@ export const Wrapper = styled.div`
             text-transform: capitalize;
         }
     }
+`;
+
+export const Description = styled.div`
+    ${({ type }) => console.log(type)}
+    position: absolute;
+    top: -20px;
+    left: 0;
+    border-bottom: 2px solid ${({ type }) => types(type)};
+    font-size: 1.2rem;
 `;
 
 export const StatRenge = styled.div`

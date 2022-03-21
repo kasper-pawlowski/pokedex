@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { Ruler } from '@styled-icons/fluentui-system-regular/Ruler';
 import { MonitorWeight } from '@styled-icons/material-outlined/MonitorWeight';
+import { types, typesLight } from 'helpers/types';
 
 export const Wrapper = styled.div`
-    margin-top: 30px;
+    position: relative;
+    margin-top: 50px;
     width: fit-content;
-    background-color: #ebf3f5;
+    /* background-color: #ebf3f5; */
     display: flex;
     align-items: center;
     padding: 30px 20px;
@@ -29,6 +31,15 @@ export const Wrapper = styled.div`
             color: #2e3057af;
         }
     }
+`;
+
+export const Description = styled.div`
+    ${({ type }) => console.log(type)}
+    position: absolute;
+    top: -20px;
+    left: 0;
+    border-bottom: 2px solid ${({ type }) => types(type)};
+    font-size: 1.2rem;
 `;
 
 export const Line = styled.div`
