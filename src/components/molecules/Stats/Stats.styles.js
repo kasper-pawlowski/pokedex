@@ -5,11 +5,14 @@ export const Wrapper = styled.div`
     position: relative;
     margin-top: 30px;
     width: fit-content;
+    height: fit-content;
     padding: 30px 20px;
     /* background-color: #ebf3f5; */
     display: flex;
     gap: 30px;
     border-radius: 10px;
+
+    grid-area: Stats;
 
     div {
         display: flex;
@@ -31,7 +34,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Description = styled.div`
-    ${({ type }) => console.log(type)}
     position: absolute;
     top: -20px;
     left: 0;

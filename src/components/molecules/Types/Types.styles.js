@@ -4,6 +4,7 @@ import { typesLight } from 'helpers/types';
 export const Wrapper = styled.div`
     display: flex;
     gap: 10px;
+    grid-area: Types;
 `;
 
 export const Span = styled.span`

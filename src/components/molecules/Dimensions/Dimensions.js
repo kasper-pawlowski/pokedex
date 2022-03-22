@@ -1,10 +1,11 @@
 import React from 'react';
-import { Wrapper, Line, StyledRuler, StyledWeight, Description } from './Dimensions.styles';
+import { Wrapper, Line, StyledRuler, StyledWeight } from './Dimensions.styles';
+import WrapperDescription from 'components/atoms/WrapperDescription/WrapperDescription';
 
 const Dimensions = ({ height, weight, type }) => {
     return (
         <Wrapper>
-            <Description type={type}>Dimensions</Description>
+            {/* <WrapperDescription type={type}>Dimensions</WrapperDescription> */}
             <div>
                 <p>
                     <StyledWeight />
@@ -18,7 +19,7 @@ const Dimensions = ({ height, weight, type }) => {
                     <StyledRuler />
                     {`${height / 10}m (${`${Math.floor((height / 10) * 3.28)}'${Math.round((((height / 10) * 3.28) % 1) * 12)}")`} `}
                 </p>
-                <span>Weight</span>{' '}
+                <span>Weight</span>
             </div>
         </Wrapper>
     );
