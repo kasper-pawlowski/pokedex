@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, StatRenge, StatRengeDiv, Description } from './Stats.styles';
+import { Wrapper, StatRenge, StatRengeDiv, BaseStat } from './Stats.styles';
 
-const Stats = ({ stats, type, id }) => {
+const Stats = ({ stats, type }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -13,7 +13,6 @@ const Stats = ({ stats, type, id }) => {
 
     return (
         <Wrapper>
-            <Description type={type}>Stats</Description>
             <div>
                 {stats.map(({ stat }) => (
                     <p key={stat.name}>{stat.name}</p>
@@ -21,7 +20,7 @@ const Stats = ({ stats, type, id }) => {
             </div>
             <div>
                 {stats.map((stat) => (
-                    <p>{stat.base_stat}</p>
+                    <BaseStat>{stat.base_stat}</BaseStat>
                 ))}
             </div>
             <div>

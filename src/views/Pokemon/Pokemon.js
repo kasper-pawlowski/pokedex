@@ -3,8 +3,8 @@ import { Wrapper, ImgWrapper, Info, Name, Id, InfoBaseStats } from './Pokemon.st
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Types from 'components/molecules/Types/Types';
-import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 import Dimensions from 'components/molecules/Dimensions/Dimensions';
+import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 import Stats from 'components/molecules/Stats/Stats';
 import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
 
@@ -53,8 +53,10 @@ const Pokemon = () => {
                 </Name>
                 <Types types={pokemon.types} />
                 <InfoBaseStats>
-                    <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
-                    {/* <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} id={pokemon.id} /> */}
+                    <span>
+                        <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
+                    </span>
+                    <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
                     {/* <EvolutionChain evolutionChain={evolutionChain} /> */}
                 </InfoBaseStats>
             </Info>

@@ -3,17 +3,6 @@ import axios from 'axios';
 import { Wrapper } from './EvolutionChain.styles.js';
 
 const EvolutionChain = ({ evolutionChain }) => {
-    // const [a, b] = useState([]);
-
-    // useEffect(() => {
-    //     if (evolutionChain.chain) {
-    //         axios
-    //             .get(`https://pokeapi.co/api/v2/pokemon/${}/`)
-    //             .then(({ data }) => b(data))
-    //             .catch((err) => console.log(err));
-    //     }
-    // }, [evolutionChain.chain]);
-
     return (
         <Wrapper>
             <p>{evolutionChain.chain ? evolutionChain.chain.species.name : null}</p>

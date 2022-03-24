@@ -19,7 +19,6 @@ export const ImgWrapper = styled.div`
     border-radius: 10px;
     /* background-color: ${({ type }) => typesLight(type)}; */
     background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)});
-    transition-duration: 3s;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.199);
 
     div {
@@ -68,14 +67,19 @@ export const Info = styled.div`
 export const InfoBaseStats = styled.div`
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     gap: 20px 20px;
     grid-template-areas:
         'Dimensions IDK'
         'Stats EvolutionChain';
     grid-area: InfoBaseStats;
     padding-top: 20px;
+
+    span {
+        display: flex;
+        align-items: center;
+    }
 `;
 
 export const Name = styled.span`

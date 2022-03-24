@@ -5,15 +5,13 @@ import { types, typesLight } from 'helpers/types';
 
 export const Wrapper = styled.div`
     position: relative;
-    width: 100%;
+    width: fit-content;
     height: fit-content;
     background-color: #ebf3f5;
     display: flex;
-    /* gap: 30px; */
     border-radius: 10px;
     grid-area: Dimensions;
-    /* margin: auto 10px; */
-    padding: 30px 20px;
+    padding: 15px 15px;
 
     div {
         display: flex;
@@ -28,7 +26,7 @@ export const Wrapper = styled.div`
             justify-content: center;
             gap: 5px;
             font-size: 14px;
-            width: 170px;
+            width: 160px;
         }
 
         span {
