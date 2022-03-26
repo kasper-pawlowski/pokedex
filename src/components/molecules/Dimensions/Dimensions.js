@@ -9,7 +9,8 @@ const Dimensions = ({ height, weight, type }) => {
             <div>
                 <p>
                     <StyledWeight />
-                    {`${(weight / 10).toFixed(1)}kg (${(weight * 0.2205).toFixed(1)}lbs)`}
+                    {/* {`${(weight / 10).toFixed(1)}kg (${(weight * 0.2205).toFixed(1)}lbs)`} */}
+                    {`${(weight / 10).toFixed(1)}kg`}
                 </p>
                 <span>Height</span>
             </div>
@@ -17,7 +18,8 @@ const Dimensions = ({ height, weight, type }) => {
             <div>
                 <p>
                     <StyledRuler />
-                    {`${height / 10}m (${`${Math.floor((height / 10) * 3.28)}'${Math.round((((height / 10) * 3.28) % 1) * 12)}")`} `}
+                    {/* {`${height / 10}m (${`${Math.floor((height / 10) * 3.28)}'${Math.round((((height / 10) * 3.28) % 1) * 12)}")`} `} */}
+                    {`${height / 10}m`}
                 </p>
                 <span>Weight</span>
             </div>

@@ -6,6 +6,7 @@ import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline/ArrowIos
 
 export const Wrapper = styled.div`
     width: fit-content;
+    margin-left: auto;
     /* height: 100%; */
     /* background-color: #ebf3f5; */
     display: flex;

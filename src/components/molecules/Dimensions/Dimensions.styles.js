@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
             justify-content: center;
             gap: 5px;
             font-size: 14px;
-            width: 160px;
+            width: 120px;
         }
 
         span {

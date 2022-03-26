@@ -53,11 +53,9 @@ const Pokemon = () => {
                 </Name>
                 <Types types={pokemon.types} />
                 <InfoBaseStats>
-                    <span>
-                        <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
-                    </span>
+                    <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
                     <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
-                    {/* <EvolutionChain evolutionChain={evolutionChain} /> */}
+                    <EvolutionChain evolutionChain={evolutionChain} />
                 </InfoBaseStats>
             </Info>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />

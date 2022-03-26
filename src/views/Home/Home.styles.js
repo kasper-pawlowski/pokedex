@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 50px 0;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
 `;

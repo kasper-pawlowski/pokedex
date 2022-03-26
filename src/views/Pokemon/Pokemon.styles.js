@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     grid-area: Route;
-    padding: 50px 0;
     width: 100%;
     display: flex;
     gap: 30px;
     flex-grow: 1;
+    padding-bottom: 50px;
 `;
 
 export const ImgWrapper = styled.div`
@@ -15,7 +15,7 @@ export const ImgWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0.5;
+    flex: 0.6;
     border-radius: 10px;
     /* background-color: ${({ type }) => typesLight(type)}; */
     background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)});
@@ -67,19 +67,18 @@ export const Info = styled.div`
 export const InfoBaseStats = styled.div`
     flex: 1;
     display: grid;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    /* grid-template-rows: repeat(auto-fill, minmax(300px, 1fr)); */
     grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     gap: 20px 20px;
     grid-template-areas:
         'Dimensions IDK'
         'Stats EvolutionChain';
     grid-area: InfoBaseStats;
     padding-top: 20px;
-
-    span {
-        display: flex;
-        align-items: center;
-    }
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
 `;
 
 export const Name = styled.span`

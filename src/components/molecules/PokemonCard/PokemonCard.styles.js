@@ -9,6 +9,7 @@ export const Wrapper = styled(Link)`
     align-items: center;
     height: 280px;
     border-radius: 10px;
+    transition-duration: 0.15s;
     background-color: ${({ type }) => typesLight(type)};
     /* background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)}); */
 
@@ -24,6 +25,10 @@ export const Wrapper = styled(Link)`
         background: rgba(255, 255, 255, 0.116);
         backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
+    }
+
+    &:active {
+        transform: translateY(3px);
     }
 `;
 
