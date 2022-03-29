@@ -11,8 +11,6 @@ const EvolutionChain = ({ evolutionChain: { chain } }) => {
 
     return (
         <Wrapper>
-            {/* <img src={`https://img.pokemondb.net/sprites/home/normal/${evo.I}.png`} alt="" /> */}
-
             <StyledLink to={`/pokemon/${evo.I}`}>
                 <img src={`https://img.pokemondb.net/sprites/home/normal/${evo.I}.png`} alt="" />
                 <p>{evo.I}</p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, ImgWrapper, Info, Name, Id, InfoBaseStats } from './Pokemon.styles';
+import { Wrapper, ImgWrapper, Info, Name, Id, InfoBaseStats, Column } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Types from 'components/molecules/Types/Types';
@@ -12,6 +12,7 @@ const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
     const [pokemonSpecies, setPokemonSpecies] = useState([]);
     const [evolutionChain, setEvolutionChain] = useState([]);
+    // const [description, setDescription] = useState('');
     let { id } = useParams();
 
     useEffect(() => {
@@ -41,6 +42,22 @@ const Pokemon = () => {
         return <div />;
     }
 
+    // let description = '';
+    // pokemonSpecies?.flavor_text_entries?.some((flavor) => {
+    //     if (flavor.language.name === 'en') {
+    //         description = flavor.flavor_text;
+    //         return;
+    //     }
+    //     console.log(description);
+    // });
+
+    // pokemonSpecies?.flavor_text_entries?.some((e) => {
+    //     if (e.language.name === 'en') {
+    //         console.log(e.flavor_text);
+    //         return;
+    //     }
+    // });
+
     return (
         <Wrapper>
             <ImgWrapper type={pokemon.types[0].type.name}>
@@ -53,9 +70,15 @@ const Pokemon = () => {
                 </Name>
                 <Types types={pokemon.types} />
                 <InfoBaseStats>
-                    <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
-                    <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
-                    <EvolutionChain evolutionChain={evolutionChain} />
+                    <Column>
+                        <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
+                    </Column>
+                    <Column>
+                        <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
+                        {/* <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} /> */}
+                    </Column>
+
+                    {/* <EvolutionChain evolutionChain={evolutionChain} /> */}
                 </InfoBaseStats>
             </Info>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />

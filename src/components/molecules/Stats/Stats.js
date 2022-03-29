@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, StatRenge, StatRengeDiv, BaseStat } from './Stats.styles';
+import { Wrapper, StatRenge, StatRengeDiv, BaseStat, StatName } from './Stats.styles';
+import { InfoWrapper, Description, Icon, DescriptionName, Content } from 'components/atoms/PokemonInfoWrapper/PokemonInfoWrapper';
+import { StatsChart } from '@styled-icons/ionicons-outline/StatsChart';
 
 const Stats = ({ stats, type }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -12,27 +14,27 @@ const Stats = ({ stats, type }) => {
     }, []);
 
     return (
-        <Wrapper>
-            <div>
-                {stats.map(({ stat }) => (
-                    <p key={stat.name}>{stat.name}</p>
-                ))}
-            </div>
-            <div>
-                {stats.map((stat) => (
-                    <BaseStat>{stat.base_stat}</BaseStat>
-                ))}
-            </div>
-            <div>
-                {stats.map((stat) => (
-                    <span>
-                        <StatRenge type={type}>
-                            <StatRengeDiv stat={stat} isLoaded={isLoaded} type={type}></StatRengeDiv>
-                        </StatRenge>
-                    </span>
-                ))}
-            </div>
-        </Wrapper>
+        <InfoWrapper>
+            <Description>
+                <Icon>
+                    <StatsChart />
+                </Icon>
+                <DescriptionName>Dimensions</DescriptionName>
+            </Description>
+            <Content>
+                <Wrapper>
+                    {stats.map(({ stat, base_stat }) => (
+                        <div key={stat.name}>
+                            <StatName>{stat.name}</StatName>
+                            <BaseStat>{base_stat}</BaseStat>
+                            <StatRenge type={type}>
+                                <StatRengeDiv baseStat={base_stat} isLoaded={isLoaded} type={type}></StatRengeDiv>
+                            </StatRenge>
+                        </div>
+                    ))}
+                </Wrapper>
+            </Content>
+        </InfoWrapper>
     );
 };
 
