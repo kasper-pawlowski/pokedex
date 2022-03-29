@@ -67,7 +67,6 @@ export const Info = styled.div`
 export const InfoBaseStats = styled.div`
     margin-top: 30px;
     flex: 1;
-    /* overflow-y: scroll; */
     overflow-x: hidden;
     display: flex;
     gap: 30px;
