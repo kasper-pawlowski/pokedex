@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PokemonSpriteWrapper, Wrapper } from './Pokemon.styles';
+import { PokemonSpriteWrapper, Wrapper, SpriteCircle } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
@@ -39,10 +39,14 @@ const Pokemon = () => {
 
     return (
         <Wrapper>
-            <PokemonSpriteWrapper type={pokemon.types[0].type.name}>
+            <SpriteCircle type={pokemon.types[0].type.name}>
+                <img src={pokemon.sprites.other.home.front_default} alt="" />
+            </SpriteCircle>
+            {/* <PokemonSpriteWrapper type={pokemon.types[0].type.name}>
                 <div>{pokemon.sprites.other.home.front_default ? <img src={pokemon.sprites.other.home.front_default} alt="" /> : 'loading'}</div>
-            </PokemonSpriteWrapper>
-            <PokemonPagination type={pokemon.types[0].type.name} id={id} />
+            </PokemonSpriteWrapper> */}
+            {/* <Info></Info> */}
+            {/* <PokemonPagination type={pokemon.types[0].type.name} id={id} /> */}
         </Wrapper>
     );
 };

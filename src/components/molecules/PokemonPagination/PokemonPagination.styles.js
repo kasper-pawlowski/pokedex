@@ -14,7 +14,10 @@ export const Wrapper = styled.div`
     justify-content: center;
     gap: 30px;
     border-radius: 10px;
-    grid-area: Pagination;
+
+    /* position: fixed;
+    right: 0;
+    transform: translateX(-100%); */
 `;
 
 export const CurrentId = styled.p`
