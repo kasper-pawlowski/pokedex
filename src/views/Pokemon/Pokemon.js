@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper } from './Pokemon.styles';
+import { PokemonSpriteWrapper, Wrapper } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -36,7 +37,14 @@ const Pokemon = () => {
         return <div />;
     }
 
-    return <Wrapper></Wrapper>;
+    return (
+        <Wrapper>
+            <PokemonSpriteWrapper type={pokemon.types[0].type.name}>
+                <div>{pokemon.sprites.other.home.front_default ? <img src={pokemon.sprites.other.home.front_default} alt="" /> : 'loading'}</div>
+            </PokemonSpriteWrapper>
+            <PokemonPagination type={pokemon.types[0].type.name} id={id} />
+        </Wrapper>
+    );
 };
 
 export default Pokemon;
