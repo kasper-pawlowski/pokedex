@@ -7,17 +7,16 @@ import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline/ArrowIos
 export const Wrapper = styled.div`
     width: fit-content;
     margin-left: auto;
-    /* height: 100%; */
-    /* background-color: #ebf3f5; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
     border-radius: 10px;
 
-    /* position: fixed;
-    right: 0;
-    transform: translateX(-100%); */
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
 `;
 
 export const CurrentId = styled.p`

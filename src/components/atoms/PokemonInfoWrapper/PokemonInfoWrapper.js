@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const InfoWrapper = styled.div`
     background-color: #ebf3f5;
     border-radius: 10px;
-    width: 100%;
+    width: ${({ evolutionChain }) => (evolutionChain ? '800px' : '100%')};
     height: fit-content;
+    margin-top: ${({ evolutionChain }) => (evolutionChain ? '30px' : null)};
 `;
 
 export const Description = styled.div`

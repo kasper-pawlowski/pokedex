@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-    padding: 30px;
-    /* background-color: #ebf3f5; */
     display: flex;
     gap: 30px;
     grid-area: EvolutionChain;
@@ -14,7 +12,6 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-    background-color: #ebf3f5;
     padding: 10px;
     border-radius: 10px;
     position: relative;

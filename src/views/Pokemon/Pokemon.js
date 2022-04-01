@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, TypeBackground } from './Pokemon.styles';
+import { Wrapper, Img, Name, Id, ImgWrapper, Info, Column } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
-import { IMG } from './IMG';
+import PokemonHeroBg from '../../components/atoms/PokemonHeroBg/PokemonHeroBg';
+import Types from 'components/molecules/Types/Types';
+import Dimensions from 'components/molecules/Dimensions/Dimensions';
+import Stats from 'components/molecules/Stats/Stats';
+import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -40,11 +44,27 @@ const Pokemon = () => {
 
     return (
         <>
-            <IMG type={pokemon.types[0].type.name} />
+            <PokemonHeroBg type={pokemon.types[0].type.name} />
             <Wrapper>
-                {/* <Info></Info> */}
-                {/* <PokemonPagination type={pokemon.types[0].type.name} id={id} /> */}
+                <ImgWrapper>
+                    {pokemon.sprites.other.home.front_default ? <Img src={pokemon.sprites.other.home.front_default} alt="" /> : null}
+                </ImgWrapper>
+                <Name>
+                    <p>{pokemon.name}</p>
+                    <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
+                </Name>
+                <Types types={pokemon.types} />
+                <Info>
+                    <Column>
+                        <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
+                    </Column>
+                    <Column>
+                        <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
+                    </Column>
+                </Info>
+                <EvolutionChain evolutionChain={evolutionChain} />
             </Wrapper>
+            <PokemonPagination type={pokemon.types[0].type.name} id={id} />
         </>
     );
 };
