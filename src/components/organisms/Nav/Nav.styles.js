@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
     font-weight: 700;
     padding: 0 5%;
     grid-area: Nav;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 2;
     transition-duration: 0.15s;
-    background-color: ${({ navbar }) => (navbar ? '#ebebeba3' : '#F8FBF5')};
+    background-color: ${({ navbar }) => (navbar ? '#ebebeba3' : 'transparent')};
     backdrop-filter: ${({ navbar }) => (navbar ? 'blur(20px) saturate(200%)' : null)};
 `;
