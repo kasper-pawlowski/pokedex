@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { types, typesLight } from 'helpers/types';
 
 export const Wrapper = styled.div`
     display: flex;
-    gap: 30px;
-    grid-area: EvolutionChain;
-    width: fit-content;
-    height: fit-content;
-    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     border-radius: 10px;
 `;
 
@@ -25,4 +24,10 @@ export const StyledLink = styled(Link)`
         font-size: 18px;
         font-weight: 500;
     }
+`;
+
+export const Line = styled.div`
+    width: 50px;
+    height: 2px;
+    background-color: ${({ type }) => types(type)};
 `;

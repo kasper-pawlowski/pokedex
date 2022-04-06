@@ -8,11 +8,13 @@ import Types from 'components/molecules/Types/Types';
 import Dimensions from 'components/molecules/Dimensions/Dimensions';
 import Stats from 'components/molecules/Stats/Stats';
 import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
+import Abilities from 'components/molecules/Abilities/Abilities';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
     const [pokemonSpecies, setPokemonSpecies] = useState([]);
     const [evolutionChain, setEvolutionChain] = useState([]);
+    const [loaded, isLoaded] = useState(false);
     let { id } = useParams();
 
     useEffect(() => {
@@ -32,7 +34,7 @@ const Pokemon = () => {
     useEffect(() => {
         if (pokemonSpecies.evolution_chain) {
             axios
-                .get(pokemonSpecies.evolution_chain?.url)
+                .get(pokemonSpecies?.evolution_chain?.url)
                 .then(({ data }) => setEvolutionChain(data))
                 .catch((err) => console.log(err));
         }
@@ -57,12 +59,13 @@ const Pokemon = () => {
                 <Info>
                     <Column>
                         <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
+                        {/* <Abilities abilities={pokemon.abilities} /> */}
                     </Column>
                     <Column>
                         <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
                     </Column>
                 </Info>
-                <EvolutionChain evolutionChain={evolutionChain} />
+                <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />
             </Wrapper>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />
         </>
