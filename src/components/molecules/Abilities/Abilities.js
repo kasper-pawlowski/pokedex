@@ -3,32 +3,23 @@ import axios from 'axios';
 import { Wrapper, AbilityWrapper, StyledArrowDownOutline } from './Abilities.styles';
 import { InfoWrapper, Description, Icon, DescriptionName, Content } from 'components/atoms/PokemonInfoWrapper/PokemonInfoWrapper';
 import { Ruler } from '@styled-icons/remix-line/Ruler';
+import Ability from 'components/atoms/Ability/Ability';
 
 const Abilities = ({ abilities }) => {
-    const [ability, setAbility] = useState({});
+    const [ability, setAbility] = useState([]);
 
-    const requestOne = axios.get(abilities[0]?.ability?.url);
-    const requestTwo = axios.get(abilities[1]?.ability?.url);
-    const requestThree = axios.get(abilities[2]?.ability?.url);
+    // useEffect(() => {
+    //     abilities.map((e) => {
+    //         axios
+    //             .get(e.ability.url)
+    //             .then(({ data }) => {
+    //                 Comp = <p>asd</p>;
+    //             })
+    //             .catch((err) => console.log(err));
+    //     });
+    // }, [abilities]);
 
-    useEffect(() => {
-        axios
-            .all([requestOne, requestTwo, requestThree])
-            .then(
-                axios.spread((...responses) => {
-                    const responseOne = setAbility({ abilityI: responses[0].name });
-                    const responseTwo = setAbility({ abilityII: responses[1].name });
-                    const responesThree = setAbility({ abilityIII: responses[2].name });
-                    // use/access the results
-                })
-            )
-            .catch((errors) => {
-                // react on errors.
-            });
-    }, [requestOne, requestThree, requestTwo]);
-
-    // console.log('----------------');
-    console.log(ability);
+    // console.log(ability.name);
 
     return (
         <InfoWrapper>
@@ -54,6 +45,10 @@ const Abilities = ({ abilities }) => {
                                 })}
                             </div>
                         ))} */}
+                        {/* <p>{console.log(ability.name)}</p> */}
+                        {abilities.map((e) => (
+                            <Ability key={e.ability.name} item={e} />
+                        ))}
                     </AbilityWrapper>
                 </Wrapper>
             </Content>
