@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ArrowDownOutline } from '@styled-icons/evaicons-outline/ArrowDownOutline';
 
 export const Wrapper = styled.div`
     background-color: #ebf3f5;
@@ -22,9 +21,4 @@ export const AbilityWrapper = styled.div`
         align-items: center;
         text-transform: capitalize;
     }
-`;
-
-export const StyledArrowDownOutline = styled(ArrowDownOutline)`
-    width: 20px;
-    height: 20px;
 `;

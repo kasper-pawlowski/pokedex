@@ -19,8 +19,6 @@ const EvolutionChain = ({ evolutionChain: { chain }, type }) => {
             .catch((err) => console.log(err));
     }, [evo]);
 
-    console.log(urls);
-
     return (
         <InfoWrapper evolutionChain>
             <Description>
