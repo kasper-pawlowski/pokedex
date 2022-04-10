@@ -7,11 +7,13 @@ const Ability = ({ item }) => {
     const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
+        const abortCont = new AbortController();
         axios
-            .get(item?.ability?.url)
+            .get(item?.ability?.url, { signal: abortCont.signal })
             .then(({ data }) => setAbility(data))
             .catch((err) => console.log(err));
-    }, [item]);
+        return () => abortCont.abort();
+    }, [item?.ability?.url]);
 
     return (
         <Wrapper onClick={() => setToggle(!toggle)}>

@@ -14,14 +14,14 @@ const PokemonList = () => {
     const { searchValue } = useContext(PokeContext);
 
     useEffect(() => {
-        setLoading(true);
+        const abortCont = new AbortController();
         axios
-            .get(currentUrl)
+            .get(currentUrl, { signal: abortCont.signal })
             .then(({ data }) => {
                 setPokemons(data.results);
             })
-            .catch((err) => setError(err));
-        setLoading(false);
+            .catch((err) => console.log(err));
+        return () => abortCont.abort();
     }, [currentUrl, limit]);
 
     const loadMore = () => {
@@ -35,27 +35,28 @@ const PokemonList = () => {
                 dataLength={pokemons.length}
                 next={() => loadMore()}
                 hasMore={true}
-                loader={<h4>Loading...</h4>}
-                pullDownToRefreshThreshold={1}
+                loader={
+                    <p style={{ textAlign: 'center', marginTop: '30px' }}>
+                        <b>Loading...</b>
+                    </p>
+                }
                 endMessage={
-                    <p style={{ textAlign: 'center' }}>
+                    <p style={{ textAlign: 'center', marginTop: '30px' }}>
                         <b>Yay! You have seen it all</b>
                     </p>
                 }>
                 <Wrapper>
-                    {loading ? (
-                        <p>asdas</p>
-                    ) : (
-                        pokemons
-                            .filter((value) => {
-                                if (searchValue === '') {
-                                    return value;
-                                } else if (value.name.toLowerCase().includes(searchValue.toLowerCase())) {
-                                    return value;
-                                }
-                            })
-                            .map((e) => <PokemonCard key={e.name} data={e} />)
-                    )}
+                    {pokemons
+                        .filter((value) => {
+                            if (searchValue === '') {
+                                return value;
+                            } else if (value.name.toLowerCase().includes(searchValue.toLowerCase())) {
+                                return value;
+                            }
+                        })
+                        .map((e) => (
+                            <PokemonCard key={e.name} data={e} />
+                        ))}
                 </Wrapper>
             </InfiniteScroll>
         </>

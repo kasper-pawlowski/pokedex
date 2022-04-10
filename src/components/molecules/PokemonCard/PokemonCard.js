@@ -6,10 +6,12 @@ const PokemonCard = ({ data: { url } }) => {
     const [pokemon, setPokemon] = useState([]);
 
     useEffect(() => {
+        const abortCont = new AbortController();
         axios
-            .get(url)
+            .get(url, { signal: abortCont.signal })
             .then(({ data }) => setPokemon(data))
             .catch((err) => console.log(err));
+        return () => abortCont.abort();
     }, [url]);
 
     if (pokemon.sprites === undefined) {

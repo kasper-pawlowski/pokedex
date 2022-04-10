@@ -35,11 +35,23 @@ export const StatRenge = styled.div`
     transition-duration: 0.5s;
 `;
 
-export const StatRengeDiv = styled.div`
+// export const StatRengeDiv = styled.div`
+//     width: 50%;
+//     height: 100%;
+//     border-radius: 10px;
+//     background-color: ${({ type }) => types(type)};
+//     width: ${({ baseStat, isLoaded }) => (isLoaded ? `${baseStat / 2.5}%` : '0%')};
+//     transition-duration: 1s;
+// `;
+
+export const StatRengeDiv = styled.div.attrs((props) => ({
+    style: {
+        backgroundColor: types(props.type),
+        width: props.isLoaded ? `${props.baseStat / 2.5}%` : '0%',
+    },
+}))`
     width: 50%;
     height: 100%;
     border-radius: 10px;
-    background-color: ${({ type }) => types(type)};
-    width: ${({ baseStat, isLoaded }) => (isLoaded ? `${baseStat / 2.5}%` : '0%')};
     transition-duration: 1s;
 `;

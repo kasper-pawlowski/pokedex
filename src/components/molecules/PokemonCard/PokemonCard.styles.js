@@ -1,8 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { types, typesLight } from 'helpers/types';
 
+const blur = keyframes`
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+`;
+
 export const Wrapper = styled(Link)`
+    animation: ${blur} 0.2s linear;
     position: relative;
     display: flex;
     flex-direction: column;

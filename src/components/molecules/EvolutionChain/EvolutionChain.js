@@ -4,7 +4,7 @@ import { InfoWrapper, Description, Icon, DescriptionName, Content } from 'compon
 import { Wrapper, StyledLink, Line } from './EvolutionChain.styles.js';
 import { Ruler } from '@styled-icons/remix-line/Ruler';
 
-const EvolutionChain = ({ evolutionChain: { chain }, type }) => {
+const EvolutionChain = ({ evolutionChain: { chain }, id, type }) => {
     const [urls, setUrls] = useState([]);
 
     const evo = useMemo(
@@ -18,7 +18,6 @@ const EvolutionChain = ({ evolutionChain: { chain }, type }) => {
             .then((data) => setUrls(data))
             .catch((err) => console.log(err));
     }, [evo]);
-
     return (
         <InfoWrapper evolutionChain>
             <Description>

@@ -44,3 +44,15 @@ export const Text = styled.div`
     transition-duration: 0.2s;
     color: #2e3057b6;
 `;
+
+// export const Text = styled.div.attrs((props) => ({
+//     style: {
+//         height: props.toggle ? 'auto' : '0',
+//         opacity: props.toggle ? 1 : 0,
+//     },
+// }))`
+//     display: flex;
+//     margin-top: 10px;
+//     transition-duration: 0.2s;
+//     color: #2e3057b6;
+// `;

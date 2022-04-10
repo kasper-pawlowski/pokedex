@@ -65,7 +65,7 @@ const Pokemon = () => {
                         <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
                     </Column>
                 </Info>
-                <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />
+                {/* <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} /> */}
             </Wrapper>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />
         </>
