@@ -9,24 +9,27 @@ import Nav from 'components/organisms/Nav/Nav';
 import { Wrapper } from 'views/Root.styles';
 import { PokeProvider } from 'context/PokeContext';
 import NotFound from './NotFound/NotFound';
+import { AuthProvider } from 'context/AuthContext';
 
 const Root = () => {
     return (
-        <PokeProvider>
-            <BrowserRouter>
-                <ThemeProvider theme={theme}>
-                    <GlobalStyle />
-                    <Wrapper>
-                        <Nav />
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/pokemon/:id" element={<Pokemon />} />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                    </Wrapper>
-                </ThemeProvider>
-            </BrowserRouter>
-        </PokeProvider>
+        <AuthProvider>
+            <PokeProvider>
+                <BrowserRouter>
+                    <ThemeProvider theme={theme}>
+                        <GlobalStyle />
+                        <Wrapper>
+                            <Nav />
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/pokemon/:id" element={<Pokemon />} />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                        </Wrapper>
+                    </ThemeProvider>
+                </BrowserRouter>
+            </PokeProvider>
+        </AuthProvider>
     );
 };
 

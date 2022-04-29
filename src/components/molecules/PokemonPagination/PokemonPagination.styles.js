@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     border-radius: 10px;
 
     position: fixed;
-    right: 50px;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
 `;
