@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Wrapper, StyledArrowDownOutline, Label, Text } from './Ability.styles';
 
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+
 const Ability = ({ item }) => {
     const [ability, setAbility] = useState([]);
-    const [toggle, setToggle] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleOpen = () => setIsOpen(!isOpen);
 
     useEffect(() => {
         const abortCont = new AbortController();
@@ -16,12 +20,18 @@ const Ability = ({ item }) => {
     }, [item?.ability?.url]);
 
     return (
-        <Wrapper onClick={() => setToggle(!toggle)}>
-            <Label>
+        <Wrapper as={motion.li} layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
+            <Label as={motion.div} layout>
                 <p>{ability.name}</p>
-                <StyledArrowDownOutline toggle={toggle} />
+                <StyledArrowDownOutline isOpen={isOpen} />
             </Label>
-            {toggle ? <Text toggle={toggle}>{ability.flavor_text_entries[3].flavor_text}</Text> : null}
+            <AnimatePresence>
+                {isOpen && (
+                    <Text as={motion.div} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        {ability.flavor_text_entries[3].flavor_text}
+                    </Text>
+                )}
+            </AnimatePresence>
         </Wrapper>
     );
 };

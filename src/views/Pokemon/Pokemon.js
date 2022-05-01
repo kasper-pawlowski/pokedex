@@ -10,6 +10,8 @@ import Stats from 'components/molecules/Stats/Stats';
 import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 import Abilities from 'components/molecules/Abilities/Abilities';
 
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
     const [pokemonSpecies, setPokemonSpecies] = useState([]);
@@ -65,7 +67,7 @@ const Pokemon = () => {
                         <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
                     </Column>
                 </Info>
-                {/* <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} /> */}
+                <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />
             </Wrapper>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />
         </>

@@ -9,10 +9,8 @@ import {
     StyledLogOut,
     StyledUser,
 } from 'components/organisms/Nav/Nav.styles';
-
 import { Link } from 'react-router-dom';
 import { useAuth } from 'context/AuthContext';
-
 import OutsideClickHandler from 'react-outside-click-handler';
 
 const Nav = () => {

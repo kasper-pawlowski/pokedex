@@ -5,6 +5,7 @@ import { theme } from 'assets/styles/theme';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Pokemon from './Pokemon/Pokemon';
+import Profile from './Profile/Profile';
 import Nav from 'components/organisms/Nav/Nav';
 import { Wrapper } from 'views/Root.styles';
 import { PokeProvider } from 'context/PokeContext';
@@ -23,6 +24,7 @@ const Root = () => {
                             <Routes>
                                 <Route path="/" element={<Home />} />
                                 <Route path="/pokemon/:id" element={<Pokemon />} />
+                                <Route path="/profile" element={<Profile />} />
                                 <Route path="*" element={<NotFound />} />
                             </Routes>
                         </Wrapper>
