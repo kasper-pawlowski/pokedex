@@ -5,7 +5,6 @@ export const InfoWrapper = styled.div`
     border-radius: 10px;
     width: ${({ evolutionChain }) => (evolutionChain ? '800px' : '100%')};
     height: fit-content;
-    margin-top: ${({ evolutionChain }) => (evolutionChain ? '30px' : null)};
 `;
 
 export const Description = styled.div`

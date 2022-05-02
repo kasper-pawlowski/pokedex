@@ -2,10 +2,11 @@ import React from 'react';
 import { Wrapper, Line, StyledRuler, StyledWeight } from './Dimensions.styles';
 import { InfoWrapper, Description, Icon, DescriptionName, Content } from 'components/atoms/PokemonInfoWrapper/PokemonInfoWrapper';
 import { Ruler } from '@styled-icons/remix-line/Ruler';
+import { motion } from 'framer-motion';
 
 const Dimensions = ({ height, weight, type }) => {
     return (
-        <InfoWrapper>
+        <InfoWrapper as={motion.div} layout transition={{ duration: 0.15 }}>
             <Description>
                 <Icon>
                     <Ruler />

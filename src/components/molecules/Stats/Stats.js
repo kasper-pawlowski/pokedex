@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper, StatRenge, StatRengeDiv, BaseStat, StatName } from './Stats.styles';
 import { InfoWrapper, Description, Icon, DescriptionName, Content } from 'components/atoms/PokemonInfoWrapper/PokemonInfoWrapper';
 import { StatsChart } from '@styled-icons/ionicons-outline/StatsChart';
+import { motion } from 'framer-motion';
 
 const Stats = ({ stats, type }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -14,7 +15,7 @@ const Stats = ({ stats, type }) => {
     }, []);
 
     return (
-        <InfoWrapper>
+        <InfoWrapper as={motion.div} layout transition={{ duration: 0.15 }}>
             <Description>
                 <Icon>
                     <StatsChart />

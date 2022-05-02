@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* z-index: 1; */
 `;
 
 export const ImgWrapper = styled.div`
@@ -50,7 +49,17 @@ export const Info = styled.div`
     width: 800px;
     margin-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
+`;
+
+export const Item = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1fb8df;
+    padding: 20px;
+    border-radius: 10px;
 `;
 
 export const Column = styled.div`

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Wrapper, StyledArrowDownOutline, Label, Text } from './Ability.styles';
 
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Ability = ({ item }) => {
     const [ability, setAbility] = useState([]);
@@ -20,14 +20,20 @@ const Ability = ({ item }) => {
     }, [item?.ability?.url]);
 
     return (
-        <Wrapper as={motion.li} layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
-            <Label as={motion.div} layout>
+        <Wrapper as={motion.li} layout onClick={toggleOpen} transition={{ duration: 0.15 }}>
+            <Label as={motion.div} layout initial={{ y: -20 }} animate={{ y: 0 }}>
                 <p>{ability.name}</p>
                 <StyledArrowDownOutline isOpen={isOpen} />
             </Label>
             <AnimatePresence>
                 {isOpen && (
-                    <Text as={motion.div} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <Text
+                        transition={{ duration: 0.15 }}
+                        as={motion.div}
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}>
                         {ability.flavor_text_entries[3].flavor_text}
                     </Text>
                 )}

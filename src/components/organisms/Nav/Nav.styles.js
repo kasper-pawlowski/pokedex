@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ArrowDownOutline } from '@styled-icons/evaicons-outline/ArrowDownOutline';
 import { LogOut } from '@styled-icons/boxicons-regular/LogOut';
 import { User } from '@styled-icons/boxicons-regular/User';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -93,4 +94,19 @@ export const StyledLogOut = styled(LogOut)`
 export const StyledUser = styled(User)`
     width: 20px;
     height: 20px;
+`;
+
+export const StyledLink = styled(Link)`
+    background-color: #ebf3f5;
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    margin-bottom: 2px;
+    &:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
 `;

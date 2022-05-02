@@ -8,10 +8,12 @@ import {
     Dropdown,
     StyledLogOut,
     StyledUser,
+    StyledLink,
 } from 'components/organisms/Nav/Nav.styles';
 import { Link } from 'react-router-dom';
 import { useAuth } from 'context/AuthContext';
-import OutsideClickHandler from 'react-outside-click-handler';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 const Nav = () => {
     const [navbar, setNavbar] = useState(false);
@@ -31,31 +33,59 @@ const Nav = () => {
         window.addEventListener('scroll', changeBackground);
     });
 
-    console.log(currentUser);
+    // console.log(currentUser);
+
+    const Dropdownn = () => {
+        const ref = useDetectClickOutside({ onTriggered: () => setOpen(false) });
+        const out = async () => {
+            console.log('before', open);
+            logout();
+            await setOpen(false);
+            console.log('after', open);
+        };
+
+        return (
+            <Dropdown
+                ref={ref}
+                as={motion.div}
+                layout
+                transition={{ duration: 0.15 }}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}>
+                <StyledLink to="/profile">
+                    <StyledUser />
+                    Profile
+                </StyledLink>
+                <div onClick={() => setOpen(false)}>
+                    <StyledLogOut /> Log Out
+                </div>
+            </Dropdown>
+        );
+    };
 
     return (
         <Wrapper navbar={navbar}>
-            <Link to="/">
+            <Link
+                to="/"
+                onClick={() =>
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth',
+                    })
+                }>
                 <p>Pokédex</p>
             </Link>
-            <LoginWrapper onClick={() => setOpen(true)}>
-                {open ? (
-                    <OutsideClickHandler onOutsideClick={() => setOpen(false)}>
-                        <Dropdown>
-                            <div>
-                                <StyledUser />
-                                Profile
-                            </div>
-                            <div onClick={() => logout()}>
-                                <StyledLogOut /> Log Out
-                            </div>
-                        </Dropdown>
-                    </OutsideClickHandler>
-                ) : null}
+            <LoginWrapper onClick={() => setOpen(!open)}>
                 {currentUser ? (
                     <>
                         <ProfilePicture src={currentUser.photoURL} alt="" />
                         <StyledArrowDownOutline open={open} />
+                        {open ? (
+                            <AnimatePresence>
+                                <Dropdownn />
+                            </AnimatePresence>
+                        ) : null}
                     </>
                 ) : (
                     <LogIn onClick={() => loginWithGoogle()}>log in</LogIn>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, Img, Name, Id, ImgWrapper, Info, Column } from './Pokemon.styles';
+import { Wrapper, Img, Name, Id, ImgWrapper, Info, Column, Item } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
@@ -9,8 +9,7 @@ import Dimensions from 'components/molecules/Dimensions/Dimensions';
 import Stats from 'components/molecules/Stats/Stats';
 import EvolutionChain from 'components/molecules/EvolutionChain/EvolutionChain';
 import Abilities from 'components/molecules/Abilities/Abilities';
-
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 
 const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -58,16 +57,18 @@ const Pokemon = () => {
                     <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>
                 </Name>
                 <Types types={pokemon.types} />
-                <Info>
-                    <Column>
-                        <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
-                        <Abilities abilities={pokemon.abilities} />
-                    </Column>
-                    <Column>
-                        <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
-                    </Column>
-                </Info>
-                <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />
+                <AnimateSharedLayout>
+                    <Info as={motion.div} layout>
+                        <Column as={motion.div} layout>
+                            <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
+                            <Abilities abilities={pokemon.abilities} />
+                        </Column>
+                        <Column as={motion.div} layout>
+                            <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
+                        </Column>
+                        <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />
+                    </Info>
+                </AnimateSharedLayout>
             </Wrapper>
             <PokemonPagination type={pokemon.types[0].type.name} id={id} />
         </>

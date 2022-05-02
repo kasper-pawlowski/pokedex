@@ -10,7 +10,7 @@ import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 const Abilities = ({ abilities }) => {
     return (
         <AnimateSharedLayout>
-            <InfoWrapper as={motion.div} layout>
+            <InfoWrapper as={motion.div} layout transition={{ duration: 0.15 }}>
                 <Description as={motion.div} layout>
                     <Icon>
                         <Ruler />
