@@ -53,15 +53,6 @@ export const Info = styled.div`
     gap: 30px;
 `;
 
-export const Item = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #1fb8df;
-    padding: 20px;
-    border-radius: 10px;
-`;
-
 export const Column = styled.div`
     flex: 1;
     display: flex;

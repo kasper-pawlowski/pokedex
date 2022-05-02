@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, Img, Name, Id, ImgWrapper, Info, Column, Item } from './Pokemon.styles';
+import { Wrapper, Img, Name, Id, ImgWrapper, Info, Column } from './Pokemon.styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PokemonPagination from 'components/molecules/PokemonPagination/PokemonPagination';
