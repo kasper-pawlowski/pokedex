@@ -9,7 +9,7 @@ const NotFound = () => {
             <p>
                 <span>Oops!</span> A wild Snorlax has blocked your path!
             </p>
-            <StyledLink to="/">◀ Go Back</StyledLink>
+            <StyledLink to="/pokedex">◀ Go Back</StyledLink>
         </Wrapper>
     );
 };

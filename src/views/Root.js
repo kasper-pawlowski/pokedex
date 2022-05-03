@@ -19,8 +19,8 @@ const Root = () => {
                     <Wrapper>
                         <Nav />
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/pokemon/:id" element={<Pokemon />} />
+                            <Route path="/pokedex" element={<Home />} />
+                            <Route path="/pokedex/pokemon/:id" element={<Pokemon />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </Wrapper>

@@ -31,7 +31,7 @@ const Nav = () => {
         <Wrapper navbar={navbar}>
             {location.pathname !== '/' || window.scrollY >= 66 ? (
                 <>
-                    <Link to="/" onClick={() => scrollToTop()}>
+                    <Link to="/pokedex" onClick={() => scrollToTop()}>
                         Pokédex
                     </Link>
                     <a href="https://github.com/kasper-pawlowski/pokedex" rel="noreferrer" target="_blank">
