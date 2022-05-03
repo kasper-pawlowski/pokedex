@@ -7,10 +7,7 @@ const PokemonCard = ({ data: { url } }) => {
 
     useEffect(() => {
         const abortCont = new AbortController();
-        axios
-            .get(url, { signal: abortCont.signal })
-            .then(({ data }) => setPokemon(data))
-            .catch((err) => console.log(err));
+        axios.get(url, { signal: abortCont.signal }).then(({ data }) => setPokemon(data));
         return () => abortCont.abort();
     }, [url]);
 

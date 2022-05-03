@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     align-items: center;
     gap: 10px;
     border-radius: 10px;
+    width: 100%;
+    @media (max-width: 700px) {
+        /* flex-direction: column; */
+    }
 `;
 
 export const StyledLink = styled(Link)`
@@ -23,6 +27,14 @@ export const StyledLink = styled(Link)`
         text-transform: capitalize;
         font-size: 18px;
         font-weight: 500;
+        @media (max-width: 500px) {
+            font-size: 14px;
+        }
+    }
+    img {
+        @media (max-width: 500px) {
+            width: 80px;
+        }
     }
 `;
 
@@ -30,4 +42,7 @@ export const Line = styled.div`
     width: 50px;
     height: 2px;
     background-color: ${({ type }) => types(type)};
+    @media (max-width: 700px) {
+        display: none;
+    }
 `;

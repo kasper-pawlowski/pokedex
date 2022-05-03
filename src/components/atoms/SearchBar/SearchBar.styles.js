@@ -7,12 +7,22 @@ export const Wrapper = styled.div`
     align-self: center;
     align-items: center;
     justify-content: center;
+    width: 30%;
+    @media (max-width: 1400px) {
+        width: 40%;
+    }
+    @media (max-width: 1000px) {
+        width: 60%;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const Input = styled.input`
     background-color: #ebf3f5;
     padding: 15px 30px 15px 60px;
-    width: 500px;
+    width: 100%;
     outline: none;
     border: 0;
     border-radius: 30px;

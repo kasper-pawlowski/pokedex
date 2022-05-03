@@ -6,11 +6,16 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
 
     p {
         transform: translateY(-40px);
         font-size: 26px;
         font-weight: 600;
+        text-align: center;
+        @media (max-width: 500px) {
+            font-size: 20px;
+        }
 
         span {
             color: #00739a;
@@ -18,14 +23,12 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const FourZeroFour = styled.span`
-    font-weight: 600;
-    font-size: 100px;
-`;
-
 export const Img = styled.img`
     width: 400px;
     transform: translateY(-80px);
+    @media (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 export const StyledLink = styled(Link)`
@@ -36,7 +39,7 @@ export const StyledLink = styled(Link)`
     font-size: 20px;
     color: #f8fbf5;
     transition: 0.15s;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
 
     &:hover {
         background-color: #006586;

@@ -20,7 +20,7 @@ const Stats = ({ stats, type }) => {
                 <Icon>
                     <StatsChart />
                 </Icon>
-                <DescriptionName>Dimensions</DescriptionName>
+                <DescriptionName>Stats</DescriptionName>
             </Description>
             <Content>
                 <Wrapper>

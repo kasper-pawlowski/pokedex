@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     gap: 50px;
     display: flex;
     flex-direction: column;
-    padding: 70px 5%;
+    padding: 50px 5%;
 `;
 
 export const HeroText = styled.div`

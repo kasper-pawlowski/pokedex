@@ -15,12 +15,10 @@ const PokemonList = () => {
 
     useEffect(() => {
         const abortCont = new AbortController();
-        axios
-            .get(currentUrl, { signal: abortCont.signal })
-            .then(({ data }) => {
-                setPokemons(data.results);
-            })
-            .catch((err) => console.log(err));
+        axios.get(currentUrl, { signal: abortCont.signal }).then(({ data }) => {
+            setPokemons(data.results);
+        });
+
         return () => abortCont.abort();
     }, [currentUrl, limit]);
 

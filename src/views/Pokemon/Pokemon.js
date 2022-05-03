@@ -58,12 +58,12 @@ const Pokemon = () => {
                 </Name>
                 <Types types={pokemon.types} />
                 <AnimateSharedLayout>
-                    <Info as={motion.div} layout>
-                        <Column as={motion.div} layout>
+                    <Info as={motion.div} layout transition={{ duration: 0.15 }}>
+                        <Column as={motion.div} layout transition={{ duration: 0.15 }}>
                             <Dimensions height={pokemon.height} weight={pokemon.weight} type={pokemon.types[0].type.name} />
                             <Abilities abilities={pokemon.abilities} />
                         </Column>
-                        <Column as={motion.div} layout>
+                        <Column as={motion.div} layout transition={{ duration: 0.15 }}>
                             <Stats stats={pokemon.stats} type={pokemon.types[0].type.name} />
                         </Column>
                         <EvolutionChain evolutionChain={evolutionChain} type={pokemon.types[0].type.name} />

@@ -12,11 +12,13 @@ export const Wrapper = styled.div`
     justify-content: center;
     gap: 30px;
     border-radius: 10px;
-
     position: fixed;
     right: 5%;
     top: 50%;
     transform: translateY(-50%);
+    @media (max-width: 1100px) {
+        display: none;
+    }
 `;
 
 export const CurrentId = styled.p`

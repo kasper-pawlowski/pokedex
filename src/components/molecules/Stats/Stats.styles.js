@@ -27,22 +27,12 @@ export const BaseStat = styled.p`
 `;
 
 export const StatRenge = styled.div`
-    min-width: 100px;
     flex: 1;
     background-color: ${({ type }) => typesLight(type)};
     height: 12px;
     border-radius: 10px;
     transition-duration: 0.5s;
 `;
-
-// export const StatRengeDiv = styled.div`
-//     width: 50%;
-//     height: 100%;
-//     border-radius: 10px;
-//     background-color: ${({ type }) => types(type)};
-//     width: ${({ baseStat, isLoaded }) => (isLoaded ? `${baseStat / 2.5}%` : '0%')};
-//     transition-duration: 1s;
-// `;
 
 export const StatRengeDiv = styled.div.attrs((props) => ({
     style: {

@@ -21,7 +21,6 @@ export const Wrapper = styled(Link)`
     border-radius: 10px;
     transition-duration: 0.15s;
     background-color: ${({ type }) => typesLight(type)};
-    /* background-image: linear-gradient(320deg, ${({ type }) => types(type)} 35%, 65%, ${({ type }) => typesLight(type)}); */
 
     &:after {
         content: '';
@@ -30,11 +29,11 @@ export const Wrapper = styled(Link)`
         transform: translateY(-60%);
         width: 150px;
         height: 150px;
-        background: red;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.116);
+        background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
+        transition-duration: 0.15s;
     }
 
     &:active {

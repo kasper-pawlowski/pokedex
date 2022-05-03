@@ -1,4 +1,3 @@
-import { types, typesLight } from 'helpers/types';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -6,6 +5,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 `;
 
 export const ImgWrapper = styled.div`
@@ -39,6 +39,9 @@ export const Name = styled.span`
     align-items: center;
     gap: 10px;
     margin-top: 30px;
+    @media (max-width: 500px) {
+        font-size: 38px;
+    }
 `;
 
 export const Id = styled.p`
@@ -50,7 +53,13 @@ export const Info = styled.div`
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
+    align-self: center;
     gap: 30px;
+    @media (max-width: 1100px) {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
 `;
 
 export const Column = styled.div`
