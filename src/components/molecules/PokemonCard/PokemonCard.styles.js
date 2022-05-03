@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { types, typesLight } from 'helpers/types';
+import { typesLight } from 'helpers/types';
 
 const blur = keyframes`
     0% {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { types, typesLight } from 'helpers/types';
+import { types } from 'helpers/types';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -9,9 +9,6 @@ export const Wrapper = styled.div`
     gap: 10px;
     border-radius: 10px;
     width: 100%;
-    @media (max-width: 700px) {
-        /* flex-direction: column; */
-    }
 `;
 
 export const StyledLink = styled(Link)`

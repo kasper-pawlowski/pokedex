@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper } from 'components/organisms/Nav/Nav.styles';
+import { Wrapper, GithubLink } from 'components/organisms/Nav/Nav.styles';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -30,9 +30,14 @@ const Nav = () => {
     return (
         <Wrapper navbar={navbar}>
             {location.pathname !== '/' || window.scrollY >= 66 ? (
-                <Link to="/" onClick={() => scrollToTop()}>
-                    Pokédex
-                </Link>
+                <>
+                    <Link to="/" onClick={() => scrollToTop()}>
+                        Pokédex
+                    </Link>
+                    <a href="https://github.com/kasper-pawlowski/pokedex" rel="noreferrer" target="_blank">
+                        <GithubLink />
+                    </a>
+                </>
             ) : null}
         </Wrapper>
     );

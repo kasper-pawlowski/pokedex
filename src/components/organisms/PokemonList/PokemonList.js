@@ -6,11 +6,9 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { PokeContext } from 'context/PokeContext';
 
 const PokemonList = () => {
-    const [loading, setLoading] = useState(false);
     const [pokemons, setPokemons] = useState([]);
     const [limit, setLimit] = useState(25);
     const [currentUrl, setCurrentUrl] = useState(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
-    const [error, setError] = useState('');
     const { searchValue } = useContext(PokeContext);
 
     useEffect(() => {
@@ -45,6 +43,7 @@ const PokemonList = () => {
                 }>
                 <Wrapper>
                     {pokemons
+                        // eslint-disable-next-line array-callback-return
                         .filter((value) => {
                             if (searchValue === '') {
                                 return value;

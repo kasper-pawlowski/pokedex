@@ -15,7 +15,6 @@ const Pokemon = () => {
     const [pokemon, setPokemon] = useState([]);
     const [pokemonSpecies, setPokemonSpecies] = useState([]);
     const [evolutionChain, setEvolutionChain] = useState([]);
-    const [loaded, isLoaded] = useState(false);
     let { id } = useParams();
 
     useEffect(() => {
