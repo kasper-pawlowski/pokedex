@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/pokedex/static/js/main.86cbfe10.js",
+    "main.js": "/pokedex/static/js/main.4b6cb18b.js",
     "static/media/snorlax404.png": "/pokedex/static/media/snorlax404.e52855b23d9230c914d8.png",
     "index.html": "/pokedex/index.html",
-    "main.86cbfe10.js.map": "/pokedex/static/js/main.86cbfe10.js.map"
+    "main.4b6cb18b.js.map": "/pokedex/static/js/main.4b6cb18b.js.map"
   },
   "entrypoints": [
-    "static/js/main.86cbfe10.js"
+    "static/js/main.4b6cb18b.js"
   ]
 }
