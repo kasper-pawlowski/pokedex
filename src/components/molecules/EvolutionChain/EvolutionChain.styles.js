@@ -29,6 +29,7 @@ export const StyledLink = styled(Link)`
         }
     }
     img {
+        width: 100%;
         @media (max-width: 500px) {
             width: 80px;
         }
