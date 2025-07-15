@@ -36,20 +36,20 @@ const EvolutionChain = ({ evolutionChain: { chain }, id, type }) => {
             </Description>
             <Content>
                 <Wrapper>
-                    <StyledLink onClick={() => scrollToTop()} to={`/pokedex/pokemon/${urls[0]?.data?.id}`} as={motion(StyledLink)} layout>
+                    <StyledLink onClick={() => scrollToTop()} to={`/pokemon/${urls[0]?.data?.id}`} as={motion(StyledLink)} layout>
                         <img src={`https://img.pokemondb.net/sprites/home/normal/${evo[0]?.name}.png`} alt="" />
                         <p>{evo[0]?.name}</p>
                     </StyledLink>
                     {evo[1] ? <Line type={type} /> : null}
                     {evo[1] ? (
-                        <StyledLink onClick={() => scrollToTop()} to={`/pokedex/pokemon/${urls[1]?.data?.id}`} as={motion(StyledLink)} layout>
+                        <StyledLink onClick={() => scrollToTop()} to={`/pokemon/${urls[1]?.data?.id}`} as={motion(StyledLink)} layout>
                             <img src={`https://img.pokemondb.net/sprites/home/normal/${evo[1]?.name}.png`} alt="" />
                             <p>{evo[1]?.name}</p>
                         </StyledLink>
                     ) : null}
                     {evo[2] ? <Line type={type} /> : null}
                     {evo[2] ? (
-                        <StyledLink onClick={() => scrollToTop()} to={`/pokedex/pokemon/${urls[2]?.data?.id}`} as={motion(StyledLink)} layout>
+                        <StyledLink onClick={() => scrollToTop()} to={`/pokemon/${urls[2]?.data?.id}`} as={motion(StyledLink)} layout>
                             <img src={`https://img.pokemondb.net/sprites/home/normal/${evo[2]?.name}.png`} alt="" />
                             <p>{evo[2]?.name}</p>
                         </StyledLink>

@@ -23,7 +23,7 @@ const PokemonCard = ({ data: { url } }) => {
     };
 
     return (
-        <Wrapper onClick={() => scrollToTop()} to={`/pokedex/pokemon/${pokemon.id}`} type={pokemon.types[0].type.name}>
+        <Wrapper onClick={() => scrollToTop()} to={`/pokemon/${pokemon.id}`} type={pokemon.types[0].type.name}>
             <Img src={pokemon.sprites.other.home.front_default} alt="" />
             <Name>{pokemon.name}</Name>
             <Id>{pokemon.id <= 9 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`}</Id>

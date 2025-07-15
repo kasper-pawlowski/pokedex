@@ -13,14 +13,14 @@ import NotFound from './NotFound/NotFound';
 const Root = () => {
     return (
         <PokeProvider>
-            <BrowserRouter>
+            <BrowserRouter basename="/pokedex">
                 <ThemeProvider theme={theme}>
                     <GlobalStyle />
                     <Wrapper>
                         <Nav />
                         <Routes>
-                            <Route path="/pokedex" element={<Home />} />
-                            <Route path="/pokedex/pokemon/:id" element={<Pokemon />} />
+                            <Route path="/" element={<Home />} />
+                            <Route path="/pokemon/:id" element={<Pokemon />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </Wrapper>
